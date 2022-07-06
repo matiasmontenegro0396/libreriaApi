@@ -1,7 +1,7 @@
 const express = require('express')
 const { Config } = require('./src/config/index')
 const debug = require('debug')('app:main');
-
+const {BooksApi} = require('./src/Books/index')
 
 require('dotenv')
 
@@ -15,7 +15,7 @@ app.use(express.json())
 
 
 //Modules
-
+BooksApi(app)
 
 
 
