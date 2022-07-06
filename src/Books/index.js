@@ -5,7 +5,8 @@ const router = express.Router();
 const BooksApi = (app) => {
     router
     .get('/search', BookController.getAllBooks)
-    .post('/addBook', BookController.addBook)
+    .get('/:id', BookController.getBook)
+    .post('/add', BookController.addBook)
 
     app.use("/api/libros", router);
 }
