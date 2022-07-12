@@ -7,6 +7,7 @@ const BooksApi = (app) => {
     .get('/search', BookController.getAllBooks)
     .get('/:id', BookController.getBook)
     .post('/add', BookController.addBook)
+    .patch('/:id', BookController.updateBook)
 
     app.use("/api/libros", router);
 }
