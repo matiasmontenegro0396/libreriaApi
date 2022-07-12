@@ -21,5 +21,12 @@ const create = async (data) => {
 
 }
 
+const update = async (data) => {
+    const {params : { id }, body} = data
+    const db = await Database();
+    const libro = await getOne(id)
+    
+    return await db.updateOne(libro, {$set: body})
+}
 
-module.exports.LibrosServices = {getAll, getOne, create}
+module.exports.LibrosServices = {getAll, getOne, create, update}
