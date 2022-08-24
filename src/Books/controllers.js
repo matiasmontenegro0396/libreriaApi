@@ -18,7 +18,7 @@ const getAllBooks = async (req, res) => {
   }
 };
 
-const getBook = async (req, res) => {
+const getBookById = async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -41,6 +41,22 @@ const getBook = async (req, res) => {
     Response.error(res, error);
   }
 };
+
+const findSomeBooks = async (req,res) => {
+  
+  try {
+    const {q} = req.query
+    const result = await LibrosServices.findSome(q)
+    
+    
+    Response.success(res, 200, result);
+  
+  } catch (error) {
+    debug(error);
+    Response.error(res, error);
+  }
+}
+
 
 const addBook = async (req, res) => {
 
@@ -67,4 +83,4 @@ const updateBook = async (req,res) => {
   }
 }
 
-module.exports.BookController = { getAllBooks, addBook, getBook, updateBook };
+module.exports.BookController = { getAllBooks, addBook, findSomeBooks, getBookById, updateBook };

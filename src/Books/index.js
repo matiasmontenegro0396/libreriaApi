@@ -4,8 +4,9 @@ const router = express.Router();
 
 const BooksApi = (app) => {
     router
-    .get('/search', BookController.getAllBooks)
-    .get('/:id', BookController.getBook)
+    .get('/all', BookController.getAllBooks)
+    .get('/search', BookController.findSomeBooks)
+    .get('/:id', BookController.getBookById)
     .post('/add', BookController.addBook)
     .patch('/:id', BookController.updateBook)
 
