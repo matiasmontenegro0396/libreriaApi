@@ -6,7 +6,7 @@ const getAll = async () => {
   return await db.find({}).toArray();
 };
 
-const getOne = async (id) => {
+const getOneById = async (id) => {
   const db = await Database();
 
   return await db.findOne(ObjectId(id));
@@ -48,15 +48,5 @@ const update = async (data) => {
     return await db.updateOne(libro, {$set: body})
 }
 
-// Esto crea un index para poder buscar mediante texto
-const createTextIndex = async () => {
-  const db = await Database();
-  
-  
-  const result = await db.createIndex({ "nombre": "text", "descripcion": "text", "autor": "text"});
 
-  console.log(result);
-} 
-
-
-module.exports.LibrosServices = {getAll, getOne, findSome, create, update}
+module.exports.LibrosServices = {getAll, getOneById, findSome, create, update}
