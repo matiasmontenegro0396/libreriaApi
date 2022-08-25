@@ -6,6 +6,7 @@ const BooksApi = (app) => {
     router
     .get('/all', BookController.getAllBooks)
     .get('/search', BookController.findSomeBooks)
+    .get('/search/:field', BookController.getBooksByField)
     .get('/:id', BookController.getBookById)
     .post('/add', BookController.addBook)
     .patch('/:id', BookController.updateBook)
